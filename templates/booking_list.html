@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Booking List List</h1>
-{{ booking_list }}
+<h1>Booking List</h1>
+{% for booking in booking_list %}
+<h6>{{ booking }}</h6>
+{% endfor %}
 
 {% endblock %}

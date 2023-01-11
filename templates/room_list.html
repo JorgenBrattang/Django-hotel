@@ -2,5 +2,8 @@
 {% block content %}
 
 <h1>Room List</h1>
+{% for room in room_list %}
+<h6>{{ room }}</h6>
+{% endfor %}
 
 {% endblock %}
