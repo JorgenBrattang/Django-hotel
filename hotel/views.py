@@ -10,6 +10,11 @@ class RoomList(ListView):
     template_name = 'room_list.html'
 
 
+class RoomDetail(ListView):
+    model = Room
+    template_name = 'detail.html'
+
+
 class BookingList(ListView):
     model = Booking
     template_name = 'booking_list.html'

@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row vh-100">
+
+        <!-- Image holder -->
+        <div class="col-3 bg-primary">
+        </div>
+
+        <!-- Information holder -->
+        <div class="col bg-secondary">
+            <div class="container p-4">
+
+                <!-- Room Details -->
+                <div class="row">
+                    <h4>Room Name</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, eum! Impedit itaque labore maiores
+                        quibusdam error, nihil quae aperiam tempore? Nam assumenda fuga doloremque quasi excepturi omnis
+                        culpa reprehenderit et.</p>
+                </div>
+
+                <!-- Room Booking Form -->
+                <div class="row">
+                    <form action="" method="POST">
+                        <div class="row mt-2">
+                            <label for="check_in">Check in: </label>
+                            <input type="datetime-local" id="check_in" name="check_in">
+                        </div>
+                        <div class="row mt-2">
+                            <label for="check_out">Check out: </label>
+                            <input type="datetime-local" id="check_out" name="check_out">
+                        </div>
+                        <div class="row mt-4">
+                            <button type="submit">Book the Room</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="row"></div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
