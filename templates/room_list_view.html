@@ -3,10 +3,10 @@
 
 <div class="container">
 <h1>Room List</h1>
-{% for room in room_list %}
-<div class="col-md-4 mt-3">
-    {% include 'card.html' %}
-</div>
+{% for room_category, room_url in room_list %}
+    <div class="col-md-4 mt-3">
+        {% include 'card.html' %}
+    </div>
 {% endfor %}
 </div>
 
