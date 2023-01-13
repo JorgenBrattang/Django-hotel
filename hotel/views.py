@@ -7,13 +7,7 @@ from hotel.booking_functions.availability import check_availability
 
 class RoomListView(ListView):
     model = Room
-    template_name = 'room_list.html'
-
-
-# Here temporary.. I think
-class RoomDetail(ListView):
-    model = Room
-    template_name = 'detail.html'
+    template_name = 'room_list_view.html'
 
 
 class BookingList(ListView):
@@ -23,15 +17,30 @@ class BookingList(ListView):
 
 class RoomDetailView(View):
     def get(self, request, *args, **kwargs):
-        room_category = self.kwargs.get('category', None)
-        # room_list = Room.objects.filter(category=category)
-        context = {
-            'room_category': room_category
-        }
-        return render(request, 'room_detail_view.html', context)
+        category = self.kwargs.get('category', None)
+        form = AvailabiltyForm()
+        room_list = Room.objects.filter(category=category)
+
+        if len(room_list) > 0:
+            room = room_list[0]
+            # This gets the human readable from ROOM_CATEGORIES (YAC = AC)
+            room_category = dict(room.ROOM_CATEGORIES).get(room.category, None)
+            context = {
+                'room_category': room_category,
+                'form': form,
+            }
+            return render(request, 'room_detail_view.html', context)
+        else:
+            return HttpResponse('Category does not exist')
 
     def post(self, request, *args, **kwargs):
+        category = self.kwargs.get('category', None)
         room_list = Room.objects.filter(category=category)
+        form = AvailabiltyForm(request.POST)
+
+        if form.is_valid():
+            data = form.cleaned_data
+
         available_rooms = []
         for room in room_list:
             if check_availability(room, data['check_in'], data['check_out']):
