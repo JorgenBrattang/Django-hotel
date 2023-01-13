@@ -2,12 +2,29 @@
 {% block content %}
 
 <div class="container">
-<h1>Room List</h1>
-{% for room_category, room_url in room_list %}
+    {{ if.authenticated }}
+    <h1>Room List</h1>
+    {% for room_category, room_url in room_list %}
     <div class="col-md-4 mt-3">
-        {% include 'card.html' %}
+        <div class="card">
+            <!-- Card Title -->
+            <h4 class="card-title text-center mt-1">{{ room_category }} Suite</h4>
+
+            <div class="container">
+                <!-- Short info -->
+                <p class="card-text text-muted">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae eligendi pariatur aperiam saepe
+                    laudantium!
+                    Officiis autem enim iure possimus, id cum sunt consequatur soluta magnam explicabo quisquam sit non
+                    aliquam!
+                </p>
+                <div class="mb-2 text-center">
+                    <a href="{{ room_url }}" class="btn btn-success">More Info</a>
+                </div>
+            </div>
+        </div>
     </div>
-{% endfor %}
+    {% endfor %}
 </div>
 
 {% endblock %}

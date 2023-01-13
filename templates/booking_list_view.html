@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<h2 class="text-center">Welcome {{ user }}</h2>
+<h4 class="text-center">Here are your Bookings</h4>
+<div class="container">
+{% for booking in booking_list %}
+    <div class="col-md-3 mt-3">
+        <div class="card">
+            <!-- Card Title -->
+            <h4 class="card-title text-center mt-1">{{ booking.room.category }} Suite</h4>
+
+            <div class="container p-4">
+                <!-- Information -->
+                <ul class="list-unstyled">
+                    <li>From: {{ booking.check_in }}</li>
+                    <li>To: {{ booking.check_out }}</li>
+                    <li>Beds: {{ booking.room.beds }}</li>
+                    <li>Capacity: {{ booking.room.capacity }}</li>
+                </ul>
+                <div class="mb-2 text-center">
+                    <a href="{{ booking.cancel_booking }}" class="btn btn-success mt-4">Cancel Reservation</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+</div>
+{% endblock %}
