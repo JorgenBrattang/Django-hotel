@@ -3,21 +3,18 @@ from django.views.generic import ListView, FormView, View, DeleteView
 from django.urls import reverse, reverse_lazy
 from .models import Room, Booking
 from .forms import AvailabiltyForm
+
+# Importing functions to shortening the code
 from hotel.booking_functions.availability import check_availability
+from hotel.booking_functions.get_room_cat_url_list import get_room_cat_url_list
+from hotel.booking_functions.get_room_category_human_format import get_room_category_human_format
 
 
 def RoomListView(request):
-    room = Room.objects.all()[0]
-    room_categories = dict(room.ROOM_CATEGORIES)
-    room_values = room_categories.values()
-    room_list = []
-    for room_category in room_categories:
-        room = room_categories.get(room_category)
-        room_url = reverse('hotel:RoomDetailView', kwargs={
-                           'category': room_category})
-        room_list.append((room, room_url))
+    room_category_url_list = get_room_cat_url_list()
+
     context = {
-        'room_list': room_list,
+        'room_list': room_category_url_list,
     }
     return render(request, 'room_list_view.html', context)
 
@@ -38,15 +35,12 @@ class BookingListView(ListView):
 class RoomDetailView(View):
     def get(self, request, *args, **kwargs):
         category = self.kwargs.get('category', None)
+        human_format_room_category = get_room_category_human_format(category)
         form = AvailabiltyForm()
-        room_list = Room.objects.filter(category=category)
 
-        if len(room_list) > 0:
-            room = room_list[0]
-            # This gets the human readable from ROOM_CATEGORIES (YAC = AC)
-            room_category = dict(room.ROOM_CATEGORIES).get(room.category, None)
+        if human_format_room_category is not None:
             context = {
-                'room_category': room_category,
+                'room_category': human_format_room_category,
                 'form': form,
             }
             return render(request, 'room_detail_view.html', context)
