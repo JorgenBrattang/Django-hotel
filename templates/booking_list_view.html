@@ -9,7 +9,7 @@
     <div class="col-md-3 mt-3">
         <div class="card">
             <!-- Card Title -->
-            <h4 class="card-title text-center mt-1">{{ booking.room.category }} Suite</h4>
+            <h4 class="card-title text-center mt-1">{{ booking.get_room_category }} Suite</h4>
 
             <div class="container p-4">
                 <!-- Information -->
@@ -20,7 +20,7 @@
                     <li>Capacity: {{ booking.room.capacity }}</li>
                 </ul>
                 <div class="mb-2 text-center">
-                    <a href="{{ booking.cancel_booking }}" class="btn btn-success mt-4">Cancel Reservation</a>
+                    <a href="{{ booking.get_cancel_booking_url }}" class="btn btn-success mt-4">Cancel Reservation</a>
                 </div>
             </div>
         </div>
