@@ -74,10 +74,15 @@ class RoomDetailView(View):
 
             # Book the first available room in the list
             booking = book_room(request, available_rooms[0], data['check_in'], data['check_out'])
-            return HttpResponse(booking)
+            context = {
+                'booking': booking
+            }
+            return render(request, 'success_booking.html', context)
         else:
-            return HttpResponse(
-                'No more free rooms of this category are left at this time.')
+            context = {
+                'data': data
+            }
+            return render(request, 'no_more_rooms.html', context)
 
 
 class CancelBookingView(DeleteView):
