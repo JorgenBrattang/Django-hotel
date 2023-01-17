@@ -28,6 +28,34 @@
 
 <body>
 
+    <!-- Navigation -->
+    <nav class="navbar justify-content-center mt-5">
+        <ul class="nav nav-pills">
+            <li class="nav-item">
+                <a class="btn btn-primary nav-link {% if '/' == request.path %}active{% endif %}" href="{% url 'hotel:RoomListView'%}">Home</a>
+            </li>
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+                <a class="btn btn-primary nav-link {% if '/booking_list/' == request.path %}active{% endif %}"
+                    href="{% url 'hotel:BookingListView' %}">View Reservations</a>
+            </li>
+            <li class="nav-item">
+                <a class="btn btn-primary nav-link {% if '/accounts/logout/' == request.path %}active{% endif %}"
+                    href="{% url 'account_logout' %}">Logout</a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+                <a class="btn btn-primary nav-link {% if '/accounts/signup/' == request.path %}active{% endif %}"
+                    href="{% url 'account_signup' %}">Register</a>
+            </li>
+            <li class="nav-item">
+                <a class="btn btn-primary nav-link {% if '/accounts/login/' == request.path %}active{% endif %}"
+                    href="{% url 'account_login' %}">Login</a>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+
     {% block content %}
     <!-- Our content will go here -->
     {% endblock %}

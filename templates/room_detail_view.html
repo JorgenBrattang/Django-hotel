@@ -12,13 +12,6 @@
         <div class="col">
             <div class="container p-4">
 
-                <!-- Back button -->
-                <div class="row">
-                    <div class="col-2">
-                        <a href="{% url 'hotel:RoomListView' %}" class="btn btn-primary mb-2">Home</a>
-                    </div>
-                </div>
-
                 <!-- Room Details -->
                 <div class="row">
                     <h4>{{ room_category }}</h4>
@@ -27,6 +20,7 @@
                         culpa reprehenderit et.</p>
                 </div>
 
+                {% if user.is_authenticated %}
                 <!-- Room Booking Form -->
                 <div class="row">
                     <form action="" method="POST">
@@ -45,6 +39,19 @@
                             <button type="submit" class="btn btn-success">Book the Room</button>
                         </div>
                     </form>
+                </div>
+                {% else %}
+                <div class="row">
+                    <p>To book this suite, you need to <a href="{% url 'account_login' %}">Login</a></p>
+                    <p>If you havn't got an account yet, please <a href="{% url 'account_signup' %}">Register</a></p>
+                </div>
+                {% endif %}
+
+                <!-- Back button -->
+                <div class="row mt-5">
+                    <div class="col-2">
+                        <a href="{% url 'hotel:RoomListView' %}" class="btn btn-primary mb-2">Pick another room</a>
+                    </div>
                 </div>
             </div>
         </div>
