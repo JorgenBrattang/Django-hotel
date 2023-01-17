@@ -3,9 +3,7 @@
 <!-- Room Details -->
 <div class="row">
     <h4>{{ room_category }}</h4>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, eum! Impedit itaque labore maiores
-        quibusdam error, nihil quae aperiam tempore? Nam assumenda fuga doloremque quasi excepturi omnis
-        culpa reprehenderit et.</p>
+    {% include 'room_information.html' with room_information=room_category %}
 </div>
 
 {% if user.is_authenticated %}

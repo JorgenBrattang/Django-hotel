@@ -1,0 +1,9 @@
+{% load static %}
+
+{% if room_images == 'LUXURY' %}
+<img src="{% static 'media/LUXURY.jpg' %}" alt="" class="card-img-top">
+{% endif %}
+
+{% if room_images == 'AC' %}
+<img src="{% static 'media/AC.jpg' %}" alt="" class="card-img-top">
+{% endif %}

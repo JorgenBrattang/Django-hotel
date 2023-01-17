@@ -10,15 +10,10 @@
         <div class="card">
             <!-- Card Title -->
             <h4 class="card-title text-center mt-1">{{ room_category }} Suite</h4>
-            <img src="{% static 'media/AC.jpg' %}" alt="" class="card-img-top">
+            {% include 'room_images.html' with room_images=room_category %}
             <div class="container">
                 <!-- Short info -->
-                <p class="card-text text-muted">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae eligendi pariatur aperiam saepe
-                    laudantium!
-                    Officiis autem enim iure possimus, id cum sunt consequatur soluta magnam explicabo quisquam sit non
-                    aliquam!
-                </p>
+                {% include 'room_information.html' with room_short_information=room_category %}
                 <div class="mb-2 text-center">
                     <a href="{{ room_url }}" class="btn btn-success">More Info</a>
                 </div>
