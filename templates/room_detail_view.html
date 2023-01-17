@@ -1,60 +1,44 @@
 {% extends 'base.html' %}
 {% block content %}
+<!-- Room Details -->
+<div class="row">
+    <h4>{{ room_category }}</h4>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, eum! Impedit itaque labore maiores
+        quibusdam error, nihil quae aperiam tempore? Nam assumenda fuga doloremque quasi excepturi omnis
+        culpa reprehenderit et.</p>
+</div>
 
-<div class="container-fluid">
-    <div class="row vh-100">
+{% if user.is_authenticated %}
+<!-- Room Booking Form -->
+<div class="row">
+    <form action="" method="POST">
 
-        <!-- Image holder -->
-        <div class="col-3 bg-primary">
+        {% csrf_token %}
+
+        <div class="row mt-2">
+            <label for="id_check_in">Check in: </label>
+            <input type="datetime-local" id="id_check_in" name="check_in">
         </div>
-
-        <!-- Information holder -->
-        <div class="col">
-            <div class="container p-4">
-
-                <!-- Room Details -->
-                <div class="row">
-                    <h4>{{ room_category }}</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, eum! Impedit itaque labore maiores
-                        quibusdam error, nihil quae aperiam tempore? Nam assumenda fuga doloremque quasi excepturi omnis
-                        culpa reprehenderit et.</p>
-                </div>
-
-                {% if user.is_authenticated %}
-                <!-- Room Booking Form -->
-                <div class="row">
-                    <form action="" method="POST">
-
-                        {% csrf_token %}
-
-                        <div class="row mt-2">
-                            <label for="id_check_in">Check in: </label>
-                            <input type="datetime-local" id="id_check_in" name="check_in">
-                        </div>
-                        <div class="row mt-2">
-                            <label for="id_check_out">Check out: </label>
-                            <input type="datetime-local" id="id_check_out" name="check_out">
-                        </div>
-                        <div class="row mt-4">
-                            <button type="submit" class="btn btn-success">Book the Room</button>
-                        </div>
-                    </form>
-                </div>
-                {% else %}
-                <div class="row">
-                    <p>To book this suite, you need to <a href="{% url 'account_login' %}">Login</a></p>
-                    <p>If you havn't got an account yet, please <a href="{% url 'account_signup' %}">Register</a></p>
-                </div>
-                {% endif %}
-
-                <!-- Back button -->
-                <div class="row mt-5">
-                    <div class="col-2">
-                        <a href="{% url 'hotel:RoomListView' %}" class="btn btn-primary mb-2">Pick another room</a>
-                    </div>
-                </div>
-            </div>
+        <div class="row mt-2">
+            <label for="id_check_out">Check out: </label>
+            <input type="datetime-local" id="id_check_out" name="check_out">
         </div>
+        <div class="row mt-4">
+            <button type="submit" class="btn btn-success">Book the Room</button>
+        </div>
+    </form>
+</div>
+{% else %}
+<div class="row">
+    <p>To book this suite, you need to <a href="{% url 'account_login' %}">Login</a></p>
+    <p>If you havn't got an account yet, please <a href="{% url 'account_signup' %}">Register</a></p>
+</div>
+{% endif %}
+
+<!-- Back button -->
+<div class="row mt-5">
+    <div class="col-2">
+        <a href="{% url 'hotel:RoomListView' %}" class="btn btn-primary mb-2">Pick another room</a>
     </div>
 </div>
 {% endblock %}
