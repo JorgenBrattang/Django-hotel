@@ -1,108 +1,189 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Django Hotel
+Small Hotel with a booking system that is easy to use.
 
-Welcome JorgenBrattang,
+<!-- ![stretch-page](assets/images/amIresponsive.png) -->
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+Live app: https://django-hotel.herokuapp.com/
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+# Table of content
+- [User Experience](#user-experience)
+    - [User stories](#user-stories)
+    - [User feedback](#user-feedback)
+- [Design](#design)
+    - [Login](#login)
+    - [Menu](#menu)
+    - [Difficulty](#difficulty)
+- [Development](#development)
+- [Strategy](#strategy)
+- [Feature and Testing](#feature-and-testing)
+- [Unsolved bugs](#unsolved-bugs)
+- [Technologies used](#technologies-used)
+    - [Language](#language)
+- [Frameworks libraries and programs used](#frameworks-libraries-and-programs-used)
+- [Credit](#credit)
+    - [Deployment description](#deployment-description)
+    - [Credited Code](#credited-code)
+- [Deployment](#deployment)
+    - [Create Repository](#create-repository)
+    - [Github Pages](#github-pages)
+    - [Forking](#forking)
+    - [Clone](#clone)
+    - [Setting up heroku](#setting-up-heroku)
+- [Developers part](#Developers-part)
+- [What I learned](#what-i-learned)
+- [Continued development](#continued-development)
+- [Acknowledgements](#acknowledgements)
 
-## Gitpod Reminders
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+# User experience
+## User stories
 
-`python3 -m http.server`
 
-A blue button should appear to click: _Make Public_,
+[Back to top](#table-of-content)
 
-Another blue button should appear to click: _Open Browser_.
+## User feedback
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
 
-A blue button should appear to click: _Make Public_,
+[Back to top](#table-of-content)
 
-Another blue button should appear to click: _Open Browser_.
+# Development
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
 
-To log into the Heroku toolbelt CLI:
+[Back to top](#table-of-content)
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+# Strategy
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+[Back to top](#table-of-content)
 
-------
+## Feature and Testing
 
-## Release History
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+[Back to top](#table-of-content)
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+## Unsolved bugs
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+[Back to top](#table-of-content)
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+# Technologies used
+## Language
+- Python
+- Django
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+[Back to top](#table-of-content)
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+## Frameworks libraries and programs used
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+- <a href="https://git-scm.com/" title="Link to git" rel="nofollow">Git</a>
+    - For version control
+- <a href="https://gitpod.io/" title="Link to gitpod" rel="nofollow">GitPod</a>
+    - GitPod was used for writing code, committing, and then pushing to GitHub.
+- <a href="https://github.com/" title="Link to github" rel="nofollow">Github</a>
+    - GitHub was used to store the project after pushing
+- <a href="https://dashboard.heroku.com/" title="Link to Heroku" rel="nofollow">Heroku</a>
+    - To deploy project.
+- <a href="https://lucid.app/" title="Link to lucid" rel="nofollow">Lucid</a> 
+    - To make flowcharts for the project
+- <a href="https://docs.python.org/3/library/os.html" title="Link to python os" rel="nofollow">Os libary</a> 
+    - To clear the screen
+- <a href="https://ui.dev/amiresponsive" title="Link to am i responsive" rel="nofollow">am i responsive</a> 
+    - Show the website on different screens
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+[Back to top](#table-of-content)
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+# Credit
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+## Deployment description
+Huge thank you to <a href="https://github.com/Delboy/Fruit-Hunter">Delboy</a> with the excellent description on how the deployment went. 
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+[Back to top](#table-of-content)
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+# Credited Code
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+[Back to top](#table-of-content)
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+# Deployment
+To make this project I used the Code Institute's mock terminal for Heroku.
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+## Create Repository
+For this I used Github.
+1. Go to your profile, and press on "Repositories".
+2. Press "New" (Big green button).
+3. There I chose to use a template from Code Institute to have everything I needed for this project.
+4. Named my project "django-hotel".
+5. Then clicked on "Create repository".
+6. Onces created, I opened the repository and clicked on "Gitpod" to create a new workplace.
 
-------
+[Back to top](#table-of-content)
 
-## FAQ about the uptime script
+## Github Pages
+1. Went to my repository "django-hotel".
+2. Settings tab.
+3. Pages.
+4. Chose my branch to be main.
+5. Hit save and a couple of minutes later it was deployed.
 
-**Why have you added this script?**
+[Back to top](#table-of-content)
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+## Forking
+1. Login to Github and go to my <a href="https://github.com/JorgenBrattang/daily-math">repository</a>
+2. Find the Fork button o the top right corner.
+3. Press it.
+4. The fork is now in your own repository.
 
-**How will this affect me?**
+[Back to top](#table-of-content)
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+## Clone
+- Credit to <a href="https://github.com/Delboy/Fruit-Hunter">Delboy</a> for the description!
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+1. Login to Github and go to my <a href="https://github.com/JorgenBrattang/daily-math">repository</a>
+2. Above the list of files click the green ‘code’ button.
+3. This will bring up a few options as to how you would like to clone. You can 4. select HTTPS, SSH or Github CLI, then click the clipboard icon to copy the URL.
+4. Open git bash
+5. Type ‘git clone’ and then paste the URL you copied. Press Enter.
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+[Back to top](#table-of-content)
 
-**So….?**
+## Setting up heroku
+- Credit to <a href="https://github.com/Delboy/Fruit-Hunter">Delboy</a> for the description!
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+To set up heroku you must;
 
-**Can I opt out?**
+1. If your requirements.txt file has not changed you can skip this step. Otherwise, in your terminal type 'pip3 freeze > requirements.txt' then save and push the changes.
+2. Go to Heroku.com and sign in or create a free account.
+3. From the heroku dashboard click the 'Create new app' button.
+4. Name the app something unique and choose what region you are in then click 'Create app'.
+5. Go to the settings tab and find the Config Vars section. Click 'Reveal Config Vars'.
+6. If your project does not use a creds.json file then skip this step. Otherwise, in the field for KEY enter the value CREDS in all capitals. In the field for VALUE copy and paste the entire contents of your creds.json file from your project. Then click 'Add'.
+7. In the field for KEY enter PORT in all capitals, then in the field for VALUE enter 8000. Then click 'Add'.
+8. Scroll down to the Buildpacks section and click 'Add buildpack'.
+9. Click Python then save changes.
+10. Add another buildpack by clicking 'Add buildpack' and this time click Nodejs then save changes.
+11. Make sure that Python appears above Nodejs in the buildpack section. If it does not you can click and drag them to change the order.
+12. Then head over to the deploy section by clicking deploy from the nav bar at the top of the page.
+13. From the 'Deployment method' section select GitHub and click 'Connect to GitHub'.
+14. Enter the repository name as it is in GitHub and click 'search'.
+15. Click the 'connect' button next to the repository to link it to heroku.
+16. To deploy, scroll down and click the 'Deploy Branch' button.
+17. Heroku will notify you that the app was successfully deployed with a button to view the app.
+18. If you want to rebuild your app automatically you can also select the 'Enable Automatic Deploys' button which will then rebuild the app every time you push any changes.
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+[Back to top](#table-of-content)
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+# Developers part
 
-**Anything more?**
+## What I learned
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+[Back to top](#table-of-content)
 
----
+## Continued development
 
-Happy coding!
+[Back to top](#table-of-content)
+
+## Acknowledgements
+I would like to acknowledge my mentor <a href="https://github.com/seunkoko" title="Link to GitHub profile" rel="nofollow">Oluwaseun Owonikoko</a> which guided me to make the app more interesting and threw me idea's that I did not think about.
+
+ My family for helping me progress and support me, and not to forget the tutors and community of slack that helped me alot to understand the concepts of programming and hardship of debugging.
+
+ And can't thank <a href="https://github.com/Delboy/Fruit-Hunter">Delboy</a> enough for the time saver with the informative description for deployment, saved me hours of writing and I'm so thankfull!
+
+ [Back to top](#table-of-content)
