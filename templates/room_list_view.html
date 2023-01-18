@@ -1,13 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
-<div class="container">
-    {{ if.authenticated }}
-    <div class="row justify-content-center">
+    <div class="row justify-content-center card-push-down">
         {% for room_category, room_url in room_list %}
-        <div class="col-md-3 mt-3">
+        <div class="col-md-4">
             <a href="{{ room_url }}">
-                <div class="card border-0 ">
+                <div class="card border-5 border-light">
                     <div class="img-hover-zoom">
                         {% include 'room_images.html' with room_images=room_category %}
                     </div>

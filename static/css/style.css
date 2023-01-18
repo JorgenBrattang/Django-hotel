@@ -7,6 +7,23 @@ a {
     color: rgb(31, 31, 31);
 }
 
+div p a {
+    color: rgb(0, 132, 255);
+}
+
+div p a:hover {
+    color: rgb(31, 31, 31);
+}
+
+.nav-link {
+    color: white;
+    font-size: 1.2rem;
+}
+
+.nav-pills .nav-link:hover {
+    color: rgb(0, 132, 255);
+}
+
 img {
     opacity: .85;
     scale: 1;
@@ -35,7 +52,7 @@ img {
 }
 
 .bottom-background {
-    background: rgb(241, 240, 240);
+    background: rgb(230, 228, 228);
     height: 25vh;
     width: 100%;
     z-index: -1;
@@ -44,4 +61,24 @@ img {
 .z-index {
     z-index: 1;
     margin-top: -100vh;
+}
+
+.card-push-down {
+    margin-top: 45%;
+}
+
+.opacity-lower {
+    opacity: .50;
+}
+
+.opacity-lower:hover {
+    opacity: 1;
+}
+
+footer a {
+    color: rgb(0, 132, 255);
+}
+
+footer a:hover {
+    color: rgb(31, 31, 31);
 }

@@ -1,37 +1,50 @@
 {% extends 'base.html' %}
 {% block content %}
 <!-- Room Details -->
-<div class="row">
-    <h4>{{ room_category }}</h4>
-    {% include 'room_information.html' with room_information=room_category %}
+<div class="row justify-content-left">
+    <div class="card p-2">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                {% include 'room_images.html' with room_images=room_category %}
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <!-- Card Title and Price -->
+                    <h4 class="card-title mt-1">{{ room_category }} Suite
+                        {% include 'room_information.html' with room_information=room_category %}</h4>
+
+                        {% if user.is_authenticated %}
+                        <!-- Room Booking Form -->
+                        <div class="row">
+                            <form action="" method="POST">
+            
+                                {% csrf_token %}
+            
+                                <div class="row mt-2">
+                                    <label for="id_check_in">Check in: </label>
+                                    <input type="datetime-local" id="id_check_in" name="check_in">
+                                </div>
+                                <div class="row mt-2">
+                                    <label for="id_check_out">Check out: </label>
+                                    <input type="datetime-local" id="id_check_out" name="check_out">
+                                </div>
+                                <div class="row mt-4">
+                                    <button type="submit" class="btn btn-success">Book the Room</button>
+                                </div>
+                            </form>
+                        </div>
+                        {% else %}
+                        <div class="row">
+                            <p>To book this suite, you need to <a href="{% url 'account_login' %}">Login</a></p>
+                            <p>If you havn't got an account yet, please <a href="{% url 'account_signup' %}">Register</a></p>
+                        </div>
+                        {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
-{% if user.is_authenticated %}
-<!-- Room Booking Form -->
-<div class="row">
-    <form action="" method="POST">
-
-        {% csrf_token %}
-
-        <div class="row mt-2">
-            <label for="id_check_in">Check in: </label>
-            <input type="datetime-local" id="id_check_in" name="check_in">
-        </div>
-        <div class="row mt-2">
-            <label for="id_check_out">Check out: </label>
-            <input type="datetime-local" id="id_check_out" name="check_out">
-        </div>
-        <div class="row mt-4">
-            <button type="submit" class="btn btn-success">Book the Room</button>
-        </div>
-    </form>
-</div>
-{% else %}
-<div class="row">
-    <p>To book this suite, you need to <a href="{% url 'account_login' %}">Login</a></p>
-    <p>If you havn't got an account yet, please <a href="{% url 'account_signup' %}">Register</a></p>
-</div>
-{% endif %}
 
 <!-- Back button -->
 <div class="row mt-5">
