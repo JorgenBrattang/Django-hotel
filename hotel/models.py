@@ -8,11 +8,9 @@ from cloudinary.models import CloudinaryField
 
 class Room(models.Model):
     ROOM_CATEGORIES = (
-        ('YAC', 'AC'),
-        ('NAC', 'NO-AC'),
         ('LUX', 'LUXURY'),
-        ('KIN', 'KING'),
-        ('QEE', 'QUEEN'),
+        ('DUB', 'DUBBLE'),
+        ('SIN', 'SINGAL'),
     )
     number = models.IntegerField()
     category = models.CharField(max_length=3, choices=ROOM_CATEGORIES)

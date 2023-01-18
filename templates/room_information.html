@@ -1,30 +1,5 @@
 {% load static %}
 
-<!------------- AC ------------->
-
-{% if room_information == 'AC' %}
-<!-- Long Information -->
-<p>AC - Long information</p>
-{% endif %}
-
-{% if room_short_information == 'AC' %}
-<!-- Short information -->
-<p>A comfy room with two beds that accompies two people, nice view of the town with a minimalist design. </p>
-<p>Priced at 45 Euro per day</p>
-{% endif %}
-
-<!------------- NO-AC ------------->
-
-{% if room_information == 'NO-AC' %}
-<!-- Long Information -->
-<p>NO-AC - Long information</p>
-{% endif %}
-
-{% if room_short_information == 'NO-AC' %}
-<!-- Short information -->
-<p>NO-AC - Short Infromation</p>
-{% endif %}
-
 <!------------- LUXURY ------------->
 
 {% if room_information == 'LUXURY' %}
@@ -34,29 +9,29 @@
 
 {% if room_short_information == 'LUXURY' %}
 <!-- Short information -->
-<p>LUXURY - Short Infromation</p>
+<p class="text-center">Є45</p>
 {% endif %}
 
 <!------------- KING ------------->
 
-{% if room_information == 'KING' %}
+{% if room_information == 'DUBBLE' %}
 <!-- Long Information -->
 <p>KING - Long information</p>
 {% endif %}
 
-{% if room_short_information == 'KING' %}
+{% if room_short_information == 'DUBBLE' %}
 <!-- Short information -->
-<p>KING - Short Infromation</p>
+<p class="text-center">Є45</p>
 {% endif %}
 
 <!------------- QUEEN ------------->
 
-{% if room_information == 'QUEEN' %}
+{% if room_information == 'SINGAL' %}
 <!-- Long Information -->
 <p>QUEEN - Long information</p>
 {% endif %}
 
-{% if room_short_information == 'QUEEN' %}
+{% if room_short_information == 'SINGAL' %}
 <!-- Short information -->
-<p>QUEEN - Short Infromation</p>
+<p class="text-center">Є45</p>
 {% endif %}
