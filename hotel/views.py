@@ -24,11 +24,15 @@ def RoomListView(request):
 class BookingListView(ListView):
     model = Booking
     template_name = 'booking_list_view.html'
+    paginate_by = 5
 
     def get_queryset(self, *args, **kwargs):
+        # Checks if the user is staff
         if self.request.user.is_staff:
             booking_list = Booking.objects.all()
             return booking_list
+
+        # Or normal user
         else:
             booking_list = Booking.objects.filter(user=self.request.user)
             return booking_list

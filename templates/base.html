@@ -43,6 +43,10 @@
                                 <a class="btn btn-primary nav-link {% if '/' == request.path %}active{% endif %}"
                                     href="{% url 'hotel:RoomListView'%}">Home</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="btn btn-primary nav-link {% if '/contact/' == request.path %}active{% endif %}{% if '/success/' == request.path %}active{% endif %}"
+                                    href="{% url 'contact'%}">Contact us</a>
+                            </li>
                             {% if user.is_authenticated %}
                             <li class="nav-item mx-2">
                                 <a class="btn btn-primary nav-link {% if '/booking_list/' == request.path %}active{% endif %}"

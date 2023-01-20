@@ -1,30 +1,75 @@
 {% extends 'base.html' %}
 {% block content %}
 
-
-<h2 class="text-center">Welcome {{ user }}</h2>
-<h4 class="text-center">Here are your Bookings</h4>
 <div class="container">
-{% for booking in booking_list %}
-    <div class="col-md-3 mt-3">
-        <div class="card">
-            <!-- Card Title -->
-            <h4 class="card-title text-center mt-1">{{ booking.get_room_category }} Suite</h4>
+    <div class="col-12 mt-3">
+        <div class="card p-4">
+            <h2 class="text-center">Welcome {{ user }}</h2>
+            {% if request.user.is_staff %}
+            <h4 class="text-center">Here the occupied rooms the hotel</h4>
+            {% else %}
+            <h4 class="text-center">Here are your bookings.</h4>
+            {% endif %}
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Suite</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">From</th>
+                        <th scope="col">To</th>
+                        {% if request.user.is_staff %}
+                        <th scope="col">Edit</th>
+                        <th scope="col">Cancel</th>
+                        {% endif %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for booking in booking_list %}
+                    <tr>
+                        <th scope="row">{{ booking.get_room_category }}</th>
+                        <td>{{ booking.user }}</td>
+                        <td>{{ booking.check_in }}</td>
+                        <td>{{ booking.check_out }}</td>
+                        {% if request.user.is_staff %}
+                        <td><a href="{{ booking.get_cancel_booking_url }}" class="btn btn-info">Edit Reservation</a>
+                        </td>
+                        <td><a href="{{ booking.get_cancel_booking_url }}" class="btn btn-warning">Cancel
+                                Reservation</a></td>
+                        {% endif %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <!-- If more then 3 pages exists paginate them -->
+            {% if is_paginated %}
+            <div class="d-flex justify-content-center mt-4">
+                <nav aria-label="Page navigation">
+                    <ul class="pagination">
 
-            <div class="container p-4">
-                <!-- Information -->
-                <ul class="list-unstyled">
-                    <li>From: {{ booking.check_in }}</li>
-                    <li>To: {{ booking.check_out }}</li>
-                    <li>Beds: {{ booking.room.beds }}</li>
-                    <li>Capacity: {{ booking.room.capacity }}</li>
-                </ul>
-                <div class="mb-2 text-center">
-                    <a href="{{ booking.get_cancel_booking_url }}" class="btn btn-success mt-4">Cancel Reservation</a>
-                </div>
+                        <!-- Goes back to the previous page -->
+                        {% if page_obj.has_previous %}
+                        <li><a href="?page={{ page_obj.previous_page_number }}" class="btn btn-primary">&laquo;
+                                PREV
+                            </a>
+                        </li>
+                        {% endif %}
+
+                        <!-- Goes forward to the next page -->
+                        {% if page_obj.has_next %}
+                        <li><a href="?page={{ page_obj.next_page_number }}" class="btn btn-primary"> NEXT
+                                &raquo;</a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </nav>
             </div>
+            {% endif %}
+            {% if request.user.is_staff %}
+            <p class="text-center text-secondary">Be sure to delete the old onces they have been paid for and the occupaints have left the hotel.</p>
+            {% else %}
+            <p class="text-center text-secondary">To cancel or edit your booking reservation, please contact us and we will be happy to help you.</p>
+            {% endif %}
         </div>
     </div>
-{% endfor %}
 </div>
 {% endblock %}

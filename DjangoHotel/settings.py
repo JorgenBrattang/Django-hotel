@@ -56,11 +56,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cloudinary',
 
-    # My Apps
+    # Crispy
     'crispy_forms',
     'crispy_bootstrap5',
+
+    # My Apps
     'hotel',
     'hotel.booking_functions',
+    "contact.apps.ContactConfig",
 ]
 
 SITE_ID = 1
@@ -70,8 +73,8 @@ LOGOUT_REDIRECT_URL = '/'
 
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
+DEFAULT_FROM_EMAIL = "host@django-hotel.com"
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
