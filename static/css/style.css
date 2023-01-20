@@ -43,7 +43,7 @@ img {
 }
 
 .top-background {
-    background-image: url("../media/background-img.jpg");
+    background-image: url("https://res.cloudinary.com/jorgenb/image/upload/v1674044516/static/media/background-img.cbbe7ebc308c.jpg");
     height: 75vh;
     width: 100%;
     background-position: center bottom;
